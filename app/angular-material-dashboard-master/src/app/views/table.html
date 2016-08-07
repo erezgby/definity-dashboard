@@ -1,0 +1,46 @@
+<div class="table-responsive-vertical md-whiteframe-z1">
+    <table id="table" class="table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>
+                <md-button ng-click="vm.sortBy('_id')">
+                    Campaign
+                    <i class="material-icons">{{vm.getIcon('_id')}}</i>
+                </md-button>
+            </th>
+            <th>
+                <md-button ng-click="vm.sortBy('totalCost')">
+                    Cost
+                    <i class="material-icons">{{vm.getIcon('totalCost')}}</i>
+                </md-button>
+            </th>
+            <th>
+                <md-button ng-click="vm.sortBy('totalRevenue')">
+                    Revenue
+                    <i class="material-icons">{{vm.getIcon('totalRevenue')}}</i>
+                </md-button>
+            </th>
+            <th>
+                <md-button ng-click="vm.sortBy('totalProfit')">
+                    Profit
+                    <i class="material-icons">{{vm.getIcon('totalProfit')}}</i>
+                </md-button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="data in vm.tableData | orderBy:vm.sortingOrder:vm.reverse">
+            <td data-title="Campaign">{{data._id}}</td>
+            <td data-title="Cost">{{data.totalCost | number:2}}</td>
+            <td data-title="Revenue">{{data.totalRevenue | number:2}}</td>
+            <td data-title="Profit">{{data.totalProfit | number:2}}</td>
+            <!--<td data-title="Profit">-->
+                <!--<md-progress-linear class="table-progress {{data.class}}"-->
+                                    <!--md-mode="determinate"-->
+                                    <!--value={{data.progress}}>-->
+                <!--</md-progress-linear>-->
+            <!--</td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>

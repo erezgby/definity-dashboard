@@ -1,0 +1,8 @@
+<div ng-controller="ProfitController as vm">
+    <md-content ng-controller="ProfitController as vm" layout="row" layout-align="center center">
+        <nvd3 options="vm.chartOptions" data="vm.profitChartData"></nvd3>
+    </md-content>
+    <md-content layout="raw" layout-align="center center">
+        Total Profit: {{vm.profit| number:0}}$
+    </md-content>
+</div>

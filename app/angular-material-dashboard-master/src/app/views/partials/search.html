@@ -1,0 +1,35 @@
+<div  ng-controller="SearchController as vm">
+  <md-content class="md-padding">
+    <md-autocomplete placeholder="Search campaign"
+                     md-selected-item="vm.selectedCampaign"
+                     md-search-text="vm.searchText"
+                     md-no-cache="vm.disableCaching"
+                     md-items="item in vm.querySearch(vm.searchText)"
+                     md-item-text="item.display">
+      <span md-highlight-text="vm.searchText">{{item.display}}</span>
+    </md-autocomplete>
+    <md-content ng-show="vm.selectedCampaign" class="options">
+      <h5>
+        Cost: {{vm.selectedCampaign.totalCost| number: 0}}
+        <md-progress-linear class="table-progress md-warn"
+          md-mode="determinate"
+          value={{vm.selectedCampaign.costPercentage}}>
+        </md-progress-linear>
+      </h5>
+      <h5>
+        Revenue: {{vm.selectedCampaign.totalRevenue| number: 0}}
+        <md-progress-linear class="table-progress md-accent"
+                            md-mode="determinate"
+                            value={{vm.selectedCampaign.revenuePercentage}}>
+        </md-progress-linear>
+      </h5>
+      <h5>
+        Profit: {{vm.selectedCampaign.totalProfit| number: 0}}
+        <md-progress-linear class="table-progress"
+                            md-mode="determinate"
+                            value={{vm.selectedCampaign.profitPercentage}}>
+        </md-progress-linear>
+      </h5>
+    </md-content>
+  </md-content>
+</div>

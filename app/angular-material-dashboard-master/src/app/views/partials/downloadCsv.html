@@ -1,0 +1,9 @@
+<md-content ng-controller="CSVController as vm" layout="row" layout-align="center center">
+    <md-content>
+        <md-button ng-click="vm.getCSV()">
+            <h3>Donwload CSV</h3>
+            <i class="material-icons">file_download</i>
+        </md-button>
+            <md-progress-circular md-mode="indeterminate" ng-show="vm.isLoading.analytics"></md-progress-circular>
+    </md-content>
+</md-content>
